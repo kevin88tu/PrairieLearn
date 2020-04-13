@@ -34,6 +34,12 @@ module.exports.sync = function(courseInfo, questionDB, jobLogger, callback) {
                     partialCredit = false;
                 }
             }
+            let showCorrectAnswer;
+            if (q.showCorrectAnswer != null) {
+                showCorrectAnswer = q.showCorrectAnswer;
+            } else {
+              showCorrectAnswer = true;
+            }
             return {
                 uuid: q.uuid,
                 qid: qid,
@@ -52,6 +58,7 @@ module.exports.sync = function(courseInfo, questionDB, jobLogger, callback) {
                 external_grading_entrypoint: (q.externalGradingOptions && q.externalGradingOptions.entrypoint),
                 external_grading_timeout: (q.externalGradingOptions && q.externalGradingOptions.timeout),
                 external_grading_enable_networking: (q.externalGradingOptions && q.externalGradingOptions.enableNetworking),
+                show_correct_answer: showCorrectAnswer,
             };
         });
 

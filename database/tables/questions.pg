@@ -15,6 +15,7 @@ columns
     options: jsonb
     partial_credit: boolean default true
     qid: text
+    show_correct_answer: boolean default true
     single_variant: boolean default false
     template_directory: text
     title: text
